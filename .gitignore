@@ -29,3 +29,13 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#Ignore coverage files
+/coverage
+
+#Ignore vim tmp files
+*.swo
+*.swp
+
+# Ignore application configuration
+/config/application.yml
