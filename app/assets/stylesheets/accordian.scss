@@ -1,4 +1,48 @@
 .search-div {
   border-bottom: 1px solid black;
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 48px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.search-form {
+  display: flex;
+  height: 80%;
+}
+
+.search-bar-div {
+  flex: 3;
+}
+
+.search-bar {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+}
+
+.search-button-div {
+  flex: 2;
+  padding-left: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-reset {
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 47%;
+  text-decoration: none;
+  border: 2px solid black;
+}
+
+.search-submit {
+  width: 47%;
+  background-color: #1D7AFF;
+  color: white;
+  font-size: 100%;
 }

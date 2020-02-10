@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root 'static#home'
 
   get '/page', to: 'pages#show'
-  get '/search/', to: 'pages#my_search'
+  get '/search', to: 'pages#my_search'
+  get '/reset', to: 'pages#reset_search'
 end

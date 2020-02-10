@@ -1,6 +1,9 @@
-<div>
-  <%= form_tag "/search", method: 'get', remote: true do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag 'Search' %>
-  <% end %>
-</div>
+<%= form_tag "/search", method: 'get', remote: true, class: 'search-form' do %>
+  <div class='search-bar-div'>
+    <%= search_field_tag 'search', '', class: 'search-bar', id: 'search_bar' %>
+  </div>
+  <div class='search-button-div'>
+    <%= link_to "Reset", {action: "reset_search"}, remote: true, method: 'get', class: "search-reset" %>
+    <%= submit_tag 'Search', class: "search-submit" %>
+  </div>
+<% end %>
