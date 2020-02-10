@@ -1,7 +1,13 @@
 class PagesController < ApplicationController
+
+  #class variables
+
+  @@search_term = "Ruby on Rails"
+
   def show
     _ids = search[:items].collect{ |i| i[:id][:videoId] }
     @videos = get_full_details(_ids)
+    @search_term = 'Ruby on Rails'
   end
 
   def search
@@ -184,8 +190,29 @@ class PagesController < ApplicationController
      }     
   end
 
+  def my_search
+    puts params[:search]
+    @new_search_term = params[:search]
+    yt = YoutubeInteractor.new(@new_search_term)
+    @search = yt.search
+    @_ids = @search['items'].collect{ |i| i['id']['videoId'] }
+    @full_details = get_full_details(@_ids)
+    @test = @full_details['items'].collect{ |i| i['snippet']['title'] }
+    puts @test
+
+
+    respond_to do |format|
+      format.js 
+    end
+
+  end
+
   def get_full_details(ids)
     yt = YoutubeInteractor.new('', ids)
     yt.get_details
+  end
+
+  def get_search_term
+    @@search_term
   end
 end

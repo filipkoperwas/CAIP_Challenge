@@ -15,6 +15,15 @@ class YoutubeInteractor
   def get_details
     _url = "#{BASE_URI}videos?part=#{fields}&key=#{KEY}&id=#{@ids.join(',')}"
     res = HTTParty.get(_url).body
+
     JSON.parse(res)
   end
+
+  def search
+    _url = "#{BASE_URI}search?part=snippet&key=#{KEY}&q=#{@q}&maxResults=5&type=video"
+    res = HTTParty.get(_url).body
+
+    JSON.parse(res)
+  end
+
 end
